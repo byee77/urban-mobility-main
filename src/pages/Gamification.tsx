@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import { Trophy, Star, Award, TrendingUp, Leaf, Coins } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Legend } from 'recharts';
@@ -31,12 +32,17 @@ const monthlyCarbonData = [
   { month: 'Jul', carbonCredits: 350, value: 1050 },
 ];
 
-const CustomTooltip = ({ active, payload }) => {
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: { payload: { hour?: string; month?: string; co2Emission: number; carbonCredits: number } }[];
+}
+
+const CustomTooltip = ({ active, payload }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-gray-800 p-3 rounded-lg border border-gray-700 text-white">
         <p className="text-blue-400 font-semibold">{payload[0].payload.hour}</p>
-        <p>CO2 Emission: {payload[0].value} g</p>
+        <p>CO2 Emission: {payload[0].payload.co2Emission} g</p>
         <p className="text-green-400">Carbon Credits: {payload[0].payload.carbonCredits}</p>
       </div>
     );
@@ -44,13 +50,13 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-const CreditTooltip = ({ active, payload }) => {
+const CreditTooltip = ({ active, payload }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-gray-800 p-3 rounded-lg border border-gray-700 text-white">
         <p className="text-green-400 font-semibold">{payload[0].payload.month}</p>
         <p>Carbon Credits: {payload[0].payload.carbonCredits}</p>
-        <p>Value: ${payload[0].payload.value}</p>
+        <p>Value: ${payload[0].payload.co2Emission}</p>
       </div>
     );
   }

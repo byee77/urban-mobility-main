@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Blocks, Shield, Clock, Database, Lock, Globe } from 'lucide-react';
 import ExternalWebsite from './ExternalWebsite';
 // import MapComponent from './MapComponent';

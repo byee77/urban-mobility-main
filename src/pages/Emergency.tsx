@@ -30,10 +30,10 @@ const nearbyPetrolPumps = [
 ];
 
 export default function Emergency() {
-  const [expandedEmergencies, setExpandedEmergencies] = useState({});
-  const [loading, setLoading] = useState({});
+  const [expandedEmergencies, setExpandedEmergencies] = useState<Record<string, boolean>>({});
+  const [loading, setLoading] = useState<Record<string, boolean>>({});
 
-  const toggleDetails = (id) => {
+  const toggleDetails = (id:number) => {
     if (!expandedEmergencies[id]) {
       setLoading((prev) => ({ ...prev, [id]: true }));
       setTimeout(() => {
@@ -79,11 +79,11 @@ export default function Emergency() {
                   </div>
                 </div>
 
-                <button onClick={() => toggleDetails(emergency.id)} className="mt-4 flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition w-full">
+                <button onClick={() => toggleDetails(Number(emergency.id))} className="mt-4 flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition w-full">
                   {emergency.type === 'Ambulance' ? '🏥 Nearby Hospitals' : emergency.type === 'Fire Truck' ? '🚒 Nearby Fire Stations' : '⛽ Nearby Petrol Pumps'}
                 </button>
 
-                {expandedEmergencies[emergency.id] && !loading[emergency.id] && (
+                {expandedEmergencies[Number(emergency.id)] && !loading[emergency.id] && (
                   <div className="mt-4 bg-gray-700 p-4 rounded-lg border border-gray-600">
                     <h3 className="text-lg font-semibold mb-2">{emergency.type === 'Ambulance' ? 'Nearby Hospitals' : emergency.type === 'Fire Truck' ? 'Nearby Fire Stations' : 'Nearby Petrol Pumps'}</h3>
                     <ul className="flex gap-4">

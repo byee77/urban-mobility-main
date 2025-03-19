@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Car, Bike, Truck, Clock, Leaf, Send, Shield, Ship, Wallet, Trees, Footprints, Route, Navigation, MapPin } from "lucide-react";
@@ -73,57 +74,59 @@ const VehicleOption = ({
 
   </button>
 );
-//  ----this is for location input css ---------
-const LocationInput = ({
-  label,
-  value,
-  onChange,
-  placeholder,
-  onLocationClick,
-  showLocationButton,
-  suggestions,
-  onSuggestionSelect
-}) => (
-  <div className="relative">
-    <label className="block text-sm font-medium text-gray-700 mb-1">
-      {label}
-    </label>
-    <div className="relative flex items-center">
-      <div className="absolute left-3 text-gray-400">
-        <MapPin size={18} />
-      </div>
-      <input
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        className="w-full pl-10 pr-4 py-3 rounded-lg border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200 bg-white/80 text-gray-900 placeholder-gray-500"
-      />
-      {showLocationButton && (
-        <button
-          onClick={onLocationClick}
-          className="absolute right-3 px-3 py-1.5 bg-purple-50 text-purple-600 rounded-md hover:bg-purple-100 transition-colors duration-200"
-        >
-          <Navigation size={18} />
-        </button>
-      )}
-    </div>
 
-    {/* Suggestions Dropdown */}
-    {suggestions && suggestions.length > 0 && (
-      <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-        {suggestions.map((suggestion) => (
-          <div
-            key={suggestion.place_id}
-            className="px-4 py-2 hover:bg-purple-50 cursor-pointer transition-colors duration-150"
-            onClick={() => onSuggestionSelect(suggestion)}
-          >
-            <div className="text-sm text-gray-900">{suggestion.display_name}</div>
-          </div>
-        ))}
-      </div>
-    )}
-  </div>
-);
+
+//  ----this is for location input css ---------
+// const LocationInput = ({
+//   label,
+//   value,
+//   onChange,
+//   placeholder,
+//   onLocationClick,
+//   showLocationButton,
+//   suggestions,
+//   onSuggestionSelect
+// }) => (
+//   <div className="relative">
+//     <label className="block text-sm font-medium text-gray-700 mb-1">
+//       {label}
+//     </label>
+//     <div className="relative flex items-center">
+//       <div className="absolute left-3 text-gray-400">
+//         <MapPin size={18} />
+//       </div>
+//       <input
+//         value={value}
+//         onChange={onChange}
+//         placeholder={placeholder}
+//         className="w-full pl-10 pr-4 py-3 rounded-lg border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all duration-200 bg-white/80 text-gray-900 placeholder-gray-500"
+//       />
+//       {showLocationButton && (
+//         <button
+//           onClick={onLocationClick}
+//           className="absolute right-3 px-3 py-1.5 bg-purple-50 text-purple-600 rounded-md hover:bg-purple-100 transition-colors duration-200"
+//         >
+//           <Navigation size={18} />
+//         </button>
+//       )}
+//     </div>
+
+//     {/* Suggestions Dropdown */}
+//     {suggestions && suggestions.length > 0 && (
+//       <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+//         {suggestions.map((suggestion) => (
+//           <div
+//             key={suggestion.place_id}
+//             className="px-4 py-2 hover:bg-purple-50 cursor-pointer transition-colors duration-150"
+//             onClick={() => onSuggestionSelect(suggestion)}
+//           >
+//             <div className="text-sm text-gray-900">{suggestion.display_name}</div>
+//           </div>
+//         ))}
+//       </div>
+//     )}
+//   </div>
+// );
 
 
 
