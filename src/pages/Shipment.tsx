@@ -324,7 +324,7 @@ const DeliveryRouteMap = () => {
   useEffect(() => {
     const fetchDeliveries = async () => {
       try {
-        const response = await fetch('https://urban-mobility-server.onrender.com/deliveries');
+        const response = await fetch('https://urban-mobility-server-1.onrender.com/deliveries');
         const data = await response.json();
         
         // Add mock time windows for demonstration
